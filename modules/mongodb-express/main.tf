@@ -55,7 +55,7 @@ spec:
       - name: mongo-express
         image: mongo-express
         ports:
-        - containerPort: 80
+        - containerPort: 27018
         env:
         - name: ME_CONFIG_MONGODB_ADMINUSERNAME
           valueFrom:
@@ -130,12 +130,10 @@ metadata:
 spec:
   selector:
     app: mongo-express
-  type: LoadBalancer
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
-      nodePort: 30000
+      port: 27018
+      targetPort: 27018
 YAML
 }
 
@@ -218,6 +216,6 @@ spec:
               service:
                 name: mongodb-express-service
                 port:
-                  number: 80
+                  number: 27018
   YAML
 }

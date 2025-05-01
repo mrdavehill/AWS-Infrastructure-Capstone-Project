@@ -1,6 +1,8 @@
 # AWS-Infrastructure-Capstone-Project
 
-Custom Terraform to spin up an auto-mode EKS cluster, load Mongodb Express and an ingress.
+Custom Terraform to spin up an auto-mode EKS cluster, load Mongodb Express and an Ingress.
+
+And often with a funny name.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
