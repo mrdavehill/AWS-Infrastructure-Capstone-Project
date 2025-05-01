@@ -16,7 +16,7 @@ terraform {
 }
 
 provider "aws" {
-  region = data.aws_region.this.name
+  region = local.region
 }
 
 provider "kubectl" {
@@ -24,7 +24,7 @@ provider "kubectl" {
   cluster_ca_certificate = try(base64decode(module.eks.cluster_certificate_authority_data), "bar")
   exec {
     api_version          = "client.authentication.k8s.io/v1"
-    args                 = ["eks", "get-token", "--cluster-name", random.pet_name.this.id]
+    args                 = ["eks", "get-token", "--cluster-name", random_pet.this.id]
     command              = "aws"
   }
 }
