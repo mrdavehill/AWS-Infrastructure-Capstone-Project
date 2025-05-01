@@ -32,3 +32,14 @@ output "mongodb-express-service" {
 output "mongodb-service" {
   value = kubectl_manifest.mongodb-service
 }
+
+#######################################################
+# ingress
+#######################################################
+output "mongodb-ingressclass" {
+    value = kubectl_manifest.mongodb-ingressclass
+}
+
+output "mongodb-ingress" {
+    value = kubectl_manifest.mongodb-ingress
+}

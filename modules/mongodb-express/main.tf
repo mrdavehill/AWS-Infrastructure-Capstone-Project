@@ -133,8 +133,8 @@ spec:
   type: LoadBalancer
   ports:
     - protocol: TCP
-      port: 8081
-      targetPort: 8081
+      port: 80
+      targetPort: 80
       nodePort: 30000
 YAML
 }
@@ -174,5 +174,50 @@ type: Opaque
 data:
   mongodb-root-username: dXNlcm5hbWU=
   mongodb-root-password: cGFzc3dvcmQ=
+  YAML
+}
+
+#######################################################
+# ingress
+#######################################################
+resource "kubectl_manifest" "mongodb-ingressclass" {
+    depends_on = [ kubectl_manifest.mongo-namespace
+    ] 
+    yaml_body  = <<YAML
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  labels:
+    app.kubernetes.io/name: LoadBalancerController
+  name: alb
+spec:
+  controller: eks.amazonaws.com/alb
+  YAML
+}
+
+resource "kubectl_manifest" "mongodb-ingress" {
+    depends_on = [ kubectl_manifest.mongo-namespace
+    ] 
+    yaml_body  = <<YAML
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: mongo-namespace
+  name: mongo-ingress
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mongodb-express-service
+                port:
+                  number: 80
   YAML
 }
