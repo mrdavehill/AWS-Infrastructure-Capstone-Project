@@ -55,7 +55,7 @@ spec:
       - name: mongo-express
         image: mongo-express
         ports:
-        - containerPort: 8081
+        - containerPort: 80
         env:
         - name: ME_CONFIG_MONGODB_ADMINUSERNAME
           valueFrom:
