@@ -24,6 +24,7 @@ metadata:
   namespace: mongo-namespace
 data:
   database_url: mongodb-service
+  database_port: 27017
 YAML
 }
 
@@ -55,7 +56,7 @@ spec:
       - name: mongo-express
         image: mongo-express
         ports:
-        - containerPort: 27018
+        - containerPort: 8081
         env:
         - name: ME_CONFIG_MONGODB_ADMINUSERNAME
           valueFrom:
@@ -72,6 +73,11 @@ spec:
             configMapKeyRef:
               name: mongodb-configmap
               key: database_url
+        - name: ME_CONFIG_MONGODB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: mongodb-configmap
+              key: database_port
 YAML
 }
 
@@ -134,8 +140,8 @@ spec:
     app: mongo-express
   ports:
     - protocol: TCP
-      port: 27018
-      targetPort: 27018
+      port: 8081
+      targetPort: 8081
 YAML
 }
 
@@ -220,6 +226,6 @@ spec:
               service:
                 name: mongodb-express-service
                 port:
-                  number: 27018
+                  number: 8081
   YAML
 }

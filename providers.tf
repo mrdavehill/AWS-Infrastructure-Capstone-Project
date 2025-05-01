@@ -1,5 +1,5 @@
 #######################################################
-# provider
+# required providers
 #######################################################
 terraform {
   required_providers {
@@ -14,9 +14,16 @@ terraform {
     random     = {
       source   = "hashicorp/random"
       version  = "3.7.2"
-}}}
+    }
+  }
+}
 
-provider "aws" { region  = var.region }
+#######################################################
+# provider configuration
+#######################################################
+provider "aws" { 
+  region  = var.region 
+}
 
 provider "kubectl" {
   host                   = try(module.eks.cluster_endpoint, "foo")

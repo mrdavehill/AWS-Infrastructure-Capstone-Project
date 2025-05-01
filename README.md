@@ -40,15 +40,15 @@ And often with a funny name.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cidr"></a> [cidr](#input\_cidr) | ###################################################### vpc ###################################################### | `string` | n/a | yes |
-| <a name="input_region"></a> [region](#input\_region) | ###################################################### provider ###################################################### | `string` | n/a | yes |
+| <a name="input_cidr"></a> [cidr](#input\_cidr) | RFC1918 CIDR block for the VPC. | `string` | n/a | yes |
+| <a name="input_region"></a> [region](#input\_region) | The region the provider will be configured for | `string` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_eks"></a> [eks](#output\_eks) | ###################################################### eks ###################################################### |
-| <a name="output_mongodb"></a> [mongodb](#output\_mongodb) | ###################################################### mongodb express ###################################################### |
-| <a name="output_random_pet"></a> [random\_pet](#output\_random\_pet) | ###################################################### pet name ###################################################### |
-| <a name="output_vpc"></a> [vpc](#output\_vpc) | ###################################################### vpc ###################################################### |
+| <a name="output_eks"></a> [eks](#output\_eks) | Outputs for the eks module |
+| <a name="output_mongodb"></a> [mongodb](#output\_mongodb) | Outputs for the mongodb module |
+| <a name="output_random_pet"></a> [random\_pet](#output\_random\_pet) | Outputs for the random\_pet module |
+| <a name="output_vpc"></a> [vpc](#output\_vpc) | Outputs for the vpc module |
 <!-- END_TF_DOCS -->

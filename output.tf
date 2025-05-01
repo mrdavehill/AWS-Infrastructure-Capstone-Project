@@ -2,7 +2,8 @@
 # pet name
 #######################################################
 output "random_pet" {
-    value = random_pet.this.id
+    value       = random_pet.this.id
+    description = "Outputs for the random_pet module"
 }
 
 #######################################################
@@ -10,6 +11,7 @@ output "random_pet" {
 #######################################################
 output "vpc"{
     value = module.vpc
+    description = "Outputs for the vpc module"
 }
 
 #######################################################
@@ -17,6 +19,7 @@ output "vpc"{
 #######################################################
 output "eks"{
     value = module.eks
+    description = "Outputs for the eks module"
 }
 
 #######################################################
@@ -25,4 +28,5 @@ output "eks"{
 output "mongodb"{
     value     = module.mongodb
     sensitive = true
+    description = "Outputs for the mongodb module"
 }

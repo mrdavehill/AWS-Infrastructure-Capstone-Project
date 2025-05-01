@@ -2,12 +2,14 @@
 # provider
 #######################################################
 variable "region" {
-    type = string
+    type        = string
+    description = "The region the provider will be configured for" 
 }
 
 #######################################################
 # vpc
 #######################################################
 variable "cidr" {
-    type = string
+    type        = string
+    description = "RFC1918 CIDR block for the VPC." 
 }
