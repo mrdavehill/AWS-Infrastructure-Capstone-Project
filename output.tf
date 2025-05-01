@@ -26,7 +26,3 @@ output "mongodb"{
     value     = module.mongodb
     sensitive = true
 }
-
-output "mongodb-ingress-dns-name"{
-    value     = module.mongodb.mongodb-ingress-dns-name
-}

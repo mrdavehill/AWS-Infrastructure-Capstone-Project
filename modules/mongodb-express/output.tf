@@ -43,7 +43,3 @@ output "mongodb-ingressclass" {
 output "mongodb-ingress" {
     value = kubectl_manifest.mongodb-ingress
 }
-
-output "mongodb-ingress-dns-name" {
-    value = data.aws_lb.this.dns_name
-}
