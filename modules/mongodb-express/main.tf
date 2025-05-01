@@ -1,21 +1,12 @@
 #######################################################
 # namespaces
 #######################################################
-resource "kubectl_manifest" "db-namespace" {
+resource "kubectl_manifest" "mongo-namespace" {
     yaml_body = <<YAML
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: db-namespace
-YAML
-}
-
-resource "kubectl_manifest" "web-namespace" {
-    yaml_body = <<YAML
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: web-namespace
+  name: mongo-namespace
 YAML
 }
 
@@ -23,16 +14,16 @@ YAML
 # configmap
 #######################################################
 resource "kubectl_manifest" "mongodb-configmap" {
-    depends_on = [ kubectl_manifest.web-namespace
+    depends_on = [ kubectl_manifest.mongo-namespace
     ] 
     yaml_body  = <<YAML
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: mongodb-configmap
-  namespace: web-namespace
+  namespace: mongo-namespace
 data:
-  database_url: mongodb-service.db-namespace
+  database_url: mongodb-service
 YAML
 }
 
@@ -40,14 +31,14 @@ YAML
 # deployments
 #######################################################
 resource "kubectl_manifest" "mongo-express-deployment" {
-    depends_on = [ kubectl_manifest.web-namespace
+    depends_on = [ kubectl_manifest.mongo-namespace
     ] 
     yaml_body  = <<YAML
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongo-express-deployment
-  namespace: web-namespace
+  namespace: mongo-namespace
   labels:
     app: mongo-express
 spec:
@@ -85,14 +76,14 @@ YAML
 }
 
 resource "kubectl_manifest" "mongodb-deployment" {
-    depends_on = [ kubectl_manifest.db-namespace
+    depends_on = [ kubectl_manifest.mongo-namespace
     ] 
     yaml_body  = <<YAML
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongodb-deployment
-  namespace: db-namespace
+  namespace: mongo-namespace
   labels:
     app: mongodb
 spec:
@@ -128,14 +119,14 @@ YAML
 # services
 #######################################################
 resource "kubectl_manifest" "mongodb-express-service" {
-    depends_on = [ kubectl_manifest.web-namespace
+    depends_on = [ kubectl_manifest.mongo-namespace
     ] 
     yaml_body  = <<YAML
 apiVersion: v1
 kind: Service
 metadata:
   name: mongodb-express-service
-  namespace: web-namespace
+  namespace: mongo-namespace
 spec:
   selector:
     app: mongo-express
@@ -149,14 +140,14 @@ YAML
 }
 
 resource "kubectl_manifest" "mongodb-service" {
-    depends_on = [ kubectl_manifest.db-namespace
+    depends_on = [ kubectl_manifest.mongo-namespace
     ] 
     yaml_body  = <<YAML
 apiVersion: v1
 kind: Service
 metadata:
   name: mongodb-service
-  namespace: db-namespace
+  namespace: mongo-namespace
 spec:
   selector:
     app: mongodb
@@ -171,14 +162,14 @@ YAML
 # secret
 #######################################################
 resource "kubectl_manifest" "mongodb-secret" {
-    depends_on = [ kubectl_manifest.db-namespace
+    depends_on = [ kubectl_manifest.mongo-namespace
     ] 
     yaml_body  = <<YAML
 apiVersion: v1
 kind: Secret
 metadata:
   name: mongodb-secret
-  namespace: db-namespace
+  namespace: mongo-namespace
 type: Opaque
 data:
   mongodb-root-username: dXNlcm5hbWU=
