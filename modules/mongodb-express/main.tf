@@ -125,6 +125,8 @@ resource "kubectl_manifest" "mongodb-express-service" {
 apiVersion: v1
 kind: Service
 metadata:
+  labels:
+    app: mongo-express
   name: mongodb-express-service
   namespace: mongo-namespace
 spec:
@@ -144,6 +146,8 @@ resource "kubectl_manifest" "mongodb-service" {
 apiVersion: v1
 kind: Service
 metadata:
+  labels:
+    app: mongodb
   name: mongodb-service
   namespace: mongo-namespace
 spec:

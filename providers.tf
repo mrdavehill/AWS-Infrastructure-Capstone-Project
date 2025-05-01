@@ -14,13 +14,9 @@ terraform {
     random     = {
       source   = "hashicorp/random"
       version  = "3.7.2"
-    }
-  }
-}
+}}}
 
-provider "aws" {
-  region = var.region
-}
+provider "aws" { region  = var.region }
 
 provider "kubectl" {
   host                   = try(module.eks.cluster_endpoint, "foo")
