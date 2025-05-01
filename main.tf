@@ -1,19 +1,19 @@
-*******************************************************
-* pet name
-*******************************************************
+#######################################################
+# pet name
+#######################################################
 resource "random_pet" "this" {}
 
-*******************************************************
-* vpc
-*******************************************************
+#######################################################
+# vpc
+#######################################################
 module "vpc" {
   source               = "terraform-aws-modules/vpc/aws"
   version              = "5.21.0"
   name                 = random.pet_name.this.id
   cidr                 = var.cidr
   azs                  = slice(data.aws_availability_zones.this.names, 0, 3)
-  private_subnets      = [cidrsubnet("var.cidr, 4, 0), cidrsubnet("var.cidr, 4, 1), cidrsubnet("var.cidr, 4, 2)]
-  public_subnets       = [cidrsubnet("var.cidr, 4, 3), cidrsubnet("var.cidr, 4, 4), cidrsubnet("var.cidr, 4, 5)]
+  private_subnets      = [cidrsubnet(var.cidr, 4, 0), cidrsubnet(var.cidr, 4, 1), cidrsubnet(var.cidr, 4, 2)]
+  public_subnets       = [cidrsubnet(var.cidr, 4, 3), cidrsubnet(var.cidr, 4, 4), cidrsubnet(var.cidr, 4, 5)]
   enable_nat_gateway   = true
   single_nat_gateway   = true
   enable_dns_hostnames = true
@@ -27,9 +27,9 @@ module "vpc" {
   }
 }
 
-*******************************************************
-* eks cluster
-*******************************************************
+#######################################################
+# eks cluster
+#######################################################
 module "eks" {
   source                         = "terraform-aws-modules/eks/aws"
   version                        = "~> 20.31"
@@ -45,9 +45,9 @@ module "eks" {
   subnet_ids                     = module.vpc.private_subnets
 }
 
-*******************************************************
-* mongodb express
-*******************************************************
+#######################################################
+# mongodb express
+#######################################################
 module "mongodb" {
   source                         = "./modules/mongodb-express"
 }
