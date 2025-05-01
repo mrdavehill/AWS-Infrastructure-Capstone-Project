@@ -23,5 +23,6 @@ output "eks"{
 # mongodb express
 #######################################################
 output "mongodb"{
-    value = module.mongodb
+    value     = module.mongodb
+    sensitive = true
 }

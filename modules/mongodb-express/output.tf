@@ -1,12 +1,8 @@
 #######################################################
 # namespaces
 #######################################################
-output "db-namespace" {
-  value = kubectl_manifest.db-namespace
-}
-
-output "web-namespace" {
-  value = kubectl_manifest.web-namespace
+output "mongo-namespace" {
+  value = kubectl_manifest.mongo-namespace
 }
 
 #######################################################
