@@ -5,6 +5,6 @@ output "namespaces" {
   value = kubectl_manifest.namespaces
 }
 
-output ".manifests" {
+output "manifests" {
   value = kubectl_manifest.manifests
 }
