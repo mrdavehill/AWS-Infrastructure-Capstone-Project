@@ -1,8 +1,23 @@
 # AWS-Infrastructure-Capstone-Project
 
-Custom Terraform to spin up an auto-mode EKS cluster, load Mongodb Express and an Ingress.
+## Hello friends
+
+This is a custom Terraform to spin up an auto-mode EKS cluster, load Mongodb, Mongo Express and an Ingress.
 
 And often with a funny name.
+
+Once spun up, access the Mongo Express UI from the ALB DNS A Name using the creds below:
+
+Username: username
+Password: password
+
+And you'll be greeted by this:
+
+![Mondo Express UI](https://github.com/mrdavehill/AWS-Infrastructure-Capstone-Project/blob/main/images/ui.png)
+
+## Caveat
+
+There's an issue with Apple silicon and the kubectl provider. I have run this succesfully from an Amazon Linux ec2 but it fails on my Macbook. Did steve Jobs die for nothing?
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

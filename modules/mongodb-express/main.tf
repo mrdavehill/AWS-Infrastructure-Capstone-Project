@@ -24,7 +24,7 @@ metadata:
   namespace: mongo-namespace
 data:
   database_url: mongodb-service
-  database_port: 27017
+  database_port: "27017"
 YAML
 }
 
@@ -68,16 +68,21 @@ spec:
             secretKeyRef:
               name: mongodb-secret
               key: mongodb-root-password
+        - name: ME_CONFIG_BASICAUTH_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-secret
+              key: mongodb-root-username
+        - name: ME_CONFIG_BASICAUTH_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-secret
+              key: mongodb-root-password
         - name: ME_CONFIG_MONGODB_SERVER
           valueFrom:
             configMapKeyRef:
               name: mongodb-configmap
               key: database_url
-        - name: ME_CONFIG_MONGODB_PORT
-          valueFrom:
-            configMapKeyRef:
-              name: mongodb-configmap
-              key: database_port
 YAML
 }
 
