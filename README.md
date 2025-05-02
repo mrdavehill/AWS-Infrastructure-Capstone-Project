@@ -1,5 +1,3 @@
-# AWS-Infrastructure-Capstone-Project
-
 ## Hello friends
 
 This is a custom Terraform to spin up an auto-mode EKS cluster, load Mongodb, Mongo Express and an Ingress.
@@ -21,7 +19,7 @@ MongoDB is an open-source, NoSQL document database. It's designed to be flexible
 
 Mongo Express is a web-based administrative tool for managing MongoDB databases. It provides a user-friendly interface for interacting with MongoDB, allowing users to view, add, delete, and modify databases, collections, and documents. Built using Node.js, Express.js, and Bootstrap, it simplifies common MongoDB administration tasks.
 
-The manifests created in this Terraform create the Mongo and EKS objects shown in the diagram below:
+The objects instantiated in this Terraform create the environment below:
 
 ![Mongo EKS Environment](https://github.com/mrdavehill/AWS-Infrastructure-Capstone-Project/blob/capstone-version-1/images/Mongo.png)
 
