@@ -23,10 +23,10 @@ output "eks" {
 }
 
 #######################################################
-# mongodb express
+# kubernetes
 #######################################################
 output "kubernetes" {
-  value       = module.mongodb
+  value       = module.kubernetes
   sensitive   = true
   description = "Outputs for the mongodb module"
 }

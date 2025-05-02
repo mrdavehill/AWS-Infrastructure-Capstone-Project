@@ -11,13 +11,16 @@ variable "region" {
 #######################################################
 variable "cidr" {
   type        = string
-  description = "RFC1918 CIDR block for the VPC."
+  description = "RFC1918 CIDR block for the VPC"
 }
 
 #######################################################
 # kubernetes
 #######################################################
-variable "project" {
-  type        = string
-  description = "Input variable calling the K8S yaml file"
+variable "kubernetes" {
+  type        = object({
+    project   = optional(string)
+    namespace = list(string)
+  })
+  description = "Variables needed to create K8S namespaces and launch manifests"
 }

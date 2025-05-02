@@ -1,3 +1,4 @@
 locals {
-  yaml = file("./yaml/${var.project}.yaml")
+  namespace = [for v in var.kubernetes : v.namespace]
+  project   = [for v in var.kubernetes : v.project]
 }

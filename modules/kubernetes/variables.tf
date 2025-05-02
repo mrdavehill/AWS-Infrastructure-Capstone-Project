@@ -1,7 +1,12 @@
 #######################################################
 # kubernetes
 #######################################################
-variable "yaml" {
-    type        = any
-    description = "Placeholder object for module." 
+variable "project" {
+    type        = string
+    description = "Project or application name." 
+}
+
+variable "namespace" {
+    type        = list(string)
+    description = "Namespaces being created by this module"
 }
