@@ -7,6 +7,7 @@ resource "random_pet" "this" {}
 # vpc
 #######################################################
 module "vpc" {
+  for_each             = { for v in var.vpc_switch : v.name => v if v == true }
   source               = "terraform-aws-modules/vpc/aws"
   version              = "5.21.0"
   name                 = random_pet.this.id
@@ -31,6 +32,7 @@ module "vpc" {
 # eks cluster
 #######################################################
 module "eks" {
+  for_each                       = { for v in var.eks_switch : v.name => v if v == true }
   source                         = "terraform-aws-modules/eks/aws"
   version                        = "~> 20.31"
   cluster_name                   = random_pet.this.id
@@ -49,5 +51,6 @@ module "eks" {
 # mongodb express
 #######################################################
 module "mongodb" {
+  for_each                       = { for v in var.mongodb_switch : v.name => v if v == true }
   source                         = "./modules/mongodb-express"
 }

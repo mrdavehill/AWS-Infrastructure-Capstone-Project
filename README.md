@@ -62,7 +62,10 @@ There's an issue with Apple silicon and the kubectl provider. I have run this su
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cidr"></a> [cidr](#input\_cidr) | RFC1918 CIDR block for the VPC. | `string` | n/a | yes |
+| <a name="input_eks_switch"></a> [eks\_switch](#input\_eks\_switch) | Conditional toggle switch for EKS module | `bool` | `true` | no |
+| <a name="input_mongodb_switch"></a> [mongodb\_switch](#input\_mongodb\_switch) | Conditional toggle switch for mongodb module | `bool` | `true` | no |
 | <a name="input_region"></a> [region](#input\_region) | The region the provider will be configured for | `string` | n/a | yes |
+| <a name="input_vpc_switch"></a> [vpc\_switch](#input\_vpc\_switch) | Conditional toggle switch for VPC module | `bool` | `true` | no |
 
 ## Outputs
 
