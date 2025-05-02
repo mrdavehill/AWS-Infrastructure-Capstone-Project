@@ -17,7 +17,7 @@ MongoDB is an open-source, NoSQL document database. It's designed to be flexible
 
 Mongo Express is a web-based administrative tool for managing MongoDB databases. It provides a user-friendly interface for interacting with MongoDB, allowing users to view, add, delete, and modify databases, collections, and documents. Built using Node.js, Express.js, and Bootstrap, it simplifies common MongoDB administration tasks.
 
-The objects instantiated here create the environment below:
+The objects instantiated here create the environment below (not with the NGINX ingress tho):
 
 ![Mongo EKS Environment](https://github.com/mrdavehill/AWS-Infrastructure-Capstone-Project/blob/capstone-version-1/images/Mongo.png)
 
