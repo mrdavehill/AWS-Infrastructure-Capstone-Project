@@ -11,7 +11,7 @@ Password: password
 
 And you'll be greeted by this:
 
-![Mongo Express UI](https://github.com/mrdavehill/AWS-Infrastructure-Capstone-Project/blob/capstone-version-1/images/UI.png)
+![Mongo Express UI](https://github.com/mrdavehill/AWS-Infrastructure-Capstone-Project/blob/alternative-version/images/UI.png)
 
 ## A bit about Mongodb and Mongo Express
 
@@ -21,7 +21,7 @@ Mongo Express is a web-based administrative tool for managing MongoDB databases.
 
 The objects instantiated here create the environment below:
 
-![Mongo EKS Environment](https://github.com/mrdavehill/AWS-Infrastructure-Capstone-Project/blob/capstone-version-1/images/Mongo.png)
+![Mongo EKS Environment](https://github.com/mrdavehill/AWS-Infrastructure-Capstone-Project/blob/alternative-version/images/Mongo.png)
 
 ## Caveat
 
