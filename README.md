@@ -46,7 +46,7 @@ There's an issue with Apple silicon and the kubectl provider. I have run this su
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_eks"></a> [eks](#module\_eks) | terraform-aws-modules/eks/aws | ~> 20.31 |
-| <a name="module_mongodb"></a> [mongodb](#module\_mongodb) | ./modules/mongodb-express | n/a |
+| <a name="module_kubernetes"></a> [kubernetes](#module\_kubernetes) | ./modules/kubernetes | n/a |
 | <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-aws-modules/vpc/aws | 5.21.0 |
 
 ## Resources
@@ -62,17 +62,15 @@ There's an issue with Apple silicon and the kubectl provider. I have run this su
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cidr"></a> [cidr](#input\_cidr) | RFC1918 CIDR block for the VPC. | `string` | n/a | yes |
-| <a name="input_eks_switch"></a> [eks\_switch](#input\_eks\_switch) | Conditional toggle switch for EKS module | `bool` | `true` | no |
-| <a name="input_mongodb_switch"></a> [mongodb\_switch](#input\_mongodb\_switch) | Conditional toggle switch for mongodb module | `bool` | `true` | no |
+| <a name="input_project"></a> [project](#input\_project) | Input variable calling the K8S yaml file | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The region the provider will be configured for | `string` | n/a | yes |
-| <a name="input_vpc_switch"></a> [vpc\_switch](#input\_vpc\_switch) | Conditional toggle switch for VPC module | `bool` | `true` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_eks"></a> [eks](#output\_eks) | Outputs for the eks module |
-| <a name="output_mongodb"></a> [mongodb](#output\_mongodb) | Outputs for the mongodb module |
+| <a name="output_kubernetes"></a> [kubernetes](#output\_kubernetes) | Outputs for the mongodb module |
 | <a name="output_random_pet"></a> [random\_pet](#output\_random\_pet) | Outputs for the random\_pet module |
 | <a name="output_vpc"></a> [vpc](#output\_vpc) | Outputs for the vpc module |
 <!-- END_TF_DOCS -->

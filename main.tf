@@ -7,7 +7,6 @@ resource "random_pet" "this" {}
 # vpc
 #######################################################
 module "vpc" {
-  for_each             = var.vpc_switch ? { "vpc" = {} } : {}  
   source               = "terraform-aws-modules/vpc/aws"
   version              = "5.21.0"
   name                 = random_pet.this.id
@@ -18,13 +17,13 @@ module "vpc" {
   enable_nat_gateway   = true
   single_nat_gateway   = true
   enable_dns_hostnames = true
-  public_subnet_tags   = {
+  public_subnet_tags = {
     "kubernetes.io/cluster/${random_pet.this.id}" = "shared"
-    "kubernetes.io/role/elb" = 1
+    "kubernetes.io/role/elb"                      = 1
   }
-  private_subnet_tags  = {
+  private_subnet_tags = {
     "kubernetes.io/cluster/${random_pet.this.id}" = "shared"
-    "kubernetes.io/role/internal-elb" = 1
+    "kubernetes.io/role/internal-elb"             = 1
   }
 }
 
@@ -32,25 +31,24 @@ module "vpc" {
 # eks cluster
 #######################################################
 module "eks" {
-  for_each                       = var.eks_switch ? { "eks" = {} } : {}
-  source                         = "terraform-aws-modules/eks/aws"
-  version                        = "~> 20.31"
-  cluster_name                   = random_pet.this.id
-  cluster_version                = "1.32"
-  cluster_endpoint_public_access = true
+  source                                   = "terraform-aws-modules/eks/aws"
+  version                                  = "~> 20.31"
+  cluster_name                             = random_pet.this.id
+  cluster_version                          = "1.32"
+  cluster_endpoint_public_access           = true
   enable_cluster_creator_admin_permissions = true
-  cluster_compute_config         = {
-    enabled                      = true
-    node_pools                   = ["general-purpose"]
+  cluster_compute_config = {
+    enabled    = true
+    node_pools = ["general-purpose"]
   }
-  vpc_id                         = module.vpc.vpc_id
-  subnet_ids                     = module.vpc.private_subnets
+  vpc_id     = module.vpc.vpc_id
+  subnet_ids = module.vpc.private_subnets
 }
 
 #######################################################
-# mongodb express
+# kubernetes
 #######################################################
-module "mongodb" {
-  for_each                       = var.mongodb_switch ? { "mongodb" = {} } : {}  
-  source                         = "./modules/mongodb-express"
+module "kubernetes" {
+  source = "./modules/kubernetes"
+  yaml   = local.yaml
 }
