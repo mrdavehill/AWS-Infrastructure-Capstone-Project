@@ -1,6 +1,6 @@
 ## Hello friends
 
-This is a custom Terraform to spin up an auto-mode EKS cluster, load Mongodb, Mongo Express and create an Ingress so it's externally accessable.
+This is a custom Terraform to spin up an auto-mode EKS cluster in a new dedicated VPC, load Mongodb, Mongo Express and create an Ingress so it's externally accessable.
 
 Once spun up, access the Mongo Express UI from the ALB DNS A Name using the creds below:
 
