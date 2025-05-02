@@ -13,7 +13,7 @@ Password: password
 
 And you'll be greeted by this:
 
-![Mondo Express UI](https://github.com/mrdavehill/AWS-Infrastructure-Capstone-Project/blob/main/images/ui.png)
+![Mongo Express UI](https://github.com/mrdavehill/AWS-Infrastructure-Capstone-Project/blob/capstone-version-1/images/UI.png)
 
 ## Caveat
 
