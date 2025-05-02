@@ -1,10 +1,10 @@
 #######################################################
 # kubernetes
 #######################################################
-output "this" {
+output "namespaces" {
   value = kubectl_manifest.namespaces
 }
 
-output "this" {
+output ".manifests" {
   value = kubectl_manifest.manifests
 }
