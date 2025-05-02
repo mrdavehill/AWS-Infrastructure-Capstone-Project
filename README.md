@@ -15,9 +15,19 @@ And you'll be greeted by this:
 
 ![Mongo Express UI](https://github.com/mrdavehill/AWS-Infrastructure-Capstone-Project/blob/capstone-version-1/images/UI.png)
 
+## A bit about Mongodb and Mongo Express
+
+MongoDB is an open-source, NoSQL document database. It's designed to be flexible and scalable, allowing developers to store and retrieve data in a document-oriented format using JSON-like structures. Unlike traditional relational databases, MongoDB doesn't require predefined schemas, making it easier to work with unstructured or semi-structured data. 
+
+Mongo Express is a web-based administrative tool for managing MongoDB databases. It provides a user-friendly interface for interacting with MongoDB, allowing users to view, add, delete, and modify databases, collections, and documents. Built using Node.js, Express.js, and Bootstrap, it simplifies common MongoDB administration tasks.
+
+The manifests created in this Terraform create the Mongo and EKS objects shown in the diagram below:
+
+![Mongo EKS Environment](https://github.com/mrdavehill/AWS-Infrastructure-Capstone-Project/blob/capstone-version-1/images/Mongo.png)
+
 ## Caveat
 
-There's an issue with Apple silicon and the kubectl provider. I have run this succesfully from an Amazon Linux ec2 but it fails on my Macbook. Did steve Jobs die for nothing?
+There's an issue with Apple silicon and the kubectl provider. I have run this succesfully from an Amazon Linux ec2 but it fails on my Macbook. 
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
