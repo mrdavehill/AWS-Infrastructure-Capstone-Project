@@ -19,7 +19,7 @@ variable "cidr" {
 #######################################################
 variable "kubernetes" {
   type        = object({
-    project   = optional(string)
+    project   = string
     namespace = list(string)
   })
   description = "Variables needed to create K8S namespaces and launch manifests"

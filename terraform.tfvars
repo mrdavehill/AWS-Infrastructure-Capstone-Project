@@ -12,8 +12,6 @@ cidr = "10.0.0.0/16"
 # kubernetes
 #######################################################
 kubernetes  = {
-    mongodb = {
-        project   = "mongodb"
-        namespace = ["mongo-namespace"]
-    } 
+  project   = "mongodb"
+  namespace = ["mongo-namespace"]
 }

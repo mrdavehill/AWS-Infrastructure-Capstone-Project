@@ -1,13 +1,13 @@
 #######################################################
 # kubernetes - create ns first
 #######################################################
-resource "kubectl_manifest" "namespace" {
+resource "kubectl_manifest" "namespaces" {
   for_each  = var.namespace
   yaml_body = <<YAML
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: "${var.namespace}"
+  name: "${each.value}"
 YAML
 }
 

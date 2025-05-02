@@ -50,6 +50,6 @@ module "eks" {
 #######################################################
 module "kubernetes" {
   source    = "./modules/kubernetes"
-  project   = local.project
-  namespace = local.namespace
+  project   = var.kubernetes.project
+  namespace = var.kubernetes.namespace
 }
