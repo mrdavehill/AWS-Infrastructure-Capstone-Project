@@ -62,7 +62,7 @@ There's an issue with Apple silicon and the kubectl provider. I have run this su
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cidr"></a> [cidr](#input\_cidr) | RFC1918 CIDR block for the VPC | `string` | n/a | yes |
-| <a name="input_kubernetes"></a> [kubernetes](#input\_kubernetes) | Variables needed to create K8S namespaces and launch manifests | <pre>object({<br/>    project   = string<br/>    namespace = list(string)<br/>  })</pre> | n/a | yes |
+| <a name="input_kubernetes"></a> [kubernetes](#input\_kubernetes) | Variables needed to create K8S namespaces and launch manifests | <pre>object({<br/>    project    = string<br/>    namespaces = list(string)<br/>  })</pre> | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The region the provider will be configured for | `string` | n/a | yes |
 
 ## Outputs

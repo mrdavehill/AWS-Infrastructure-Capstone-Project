@@ -6,7 +6,7 @@ variable "project" {
     description = "Project or application name." 
 }
 
-variable "namespace" {
+variable "namespaces" {
     type        = list(string)
     description = "Namespaces being created by this module"
 }
