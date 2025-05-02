@@ -8,7 +8,7 @@ And often with a funny name.
 
 Once spun up, access the Mongo Express UI from the ALB DNS A Name using the creds below:
 
-Username: username
+Username: username  
 Password: password
 
 And you'll be greeted by this:
