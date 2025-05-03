@@ -39,6 +39,7 @@ There's an issue with Apple silicon and the kubectl provider. I have run this su
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 5.0 |
+| <a name="provider_null"></a> [null](#provider\_null) | n/a |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.7.2 |
 
 ## Modules
@@ -53,6 +54,7 @@ There's an issue with Apple silicon and the kubectl provider. I have run this su
 
 | Name | Type |
 |------|------|
+| [null_resource.this](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 | [random_pet.this](https://registry.terraform.io/providers/hashicorp/random/3.7.2/docs/resources/pet) | resource |
 | [aws_availability_zones.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones) | data source |
 | [aws_region.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
@@ -62,7 +64,8 @@ There's an issue with Apple silicon and the kubectl provider. I have run this su
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cidr"></a> [cidr](#input\_cidr) | RFC1918 CIDR block for the VPC. | `string` | n/a | yes |
-| <a name="input_region"></a> [region](#input\_region) | The region the provider will be configured for | `string` | n/a | yes |
+| <a name="input_kubeconfig"></a> [kubeconfig](#input\_kubeconfig) | Triggers an optional local kubeconfig setup - don't use in pipeline. | `bool` | `false` | no |
+| <a name="input_region"></a> [region](#input\_region) | The region the provider will be configured for. | `string` | n/a | yes |
 
 ## Outputs
 
