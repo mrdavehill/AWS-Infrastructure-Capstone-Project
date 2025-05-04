@@ -16,6 +16,11 @@ terraform {
       version  = "3.7.2"
     }
   }
+  backend "s3" {
+    bucket = data.aws_caller_identity.this.account_id
+    key    = random_pet.this.id
+    region = var.region 
+  }
 }
 
 #######################################################
