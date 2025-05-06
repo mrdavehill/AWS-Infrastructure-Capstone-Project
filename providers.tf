@@ -41,7 +41,7 @@ provider "kubectl" {
     args = [
       "token",
       "-i",
-      module.eks.cluster_id,
+      try(module.eks.cluster_id, "baz"),
     ]
   }
 }
