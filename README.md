@@ -27,7 +27,7 @@ The objects instantiated here create the environment below (not with the NGINX i
 
 ## Caveat
 
-There's an issue with Apple silicon and the kubectl provider. I have run this succesfully from an Amazon Linux ec2 but it fails on my Macbook. 
+There's an issue with Apple silicon and the kubectl provider. I have run this succesfully from an Amazon Linux ec2 updated to the latest version of AWS CLI but it fails on my Macbook. 
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
