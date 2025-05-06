@@ -18,7 +18,7 @@ terraform {
   }
   backend "s3" {
     bucket = "232413781559-eu-west-1"
-    key    ="/"
+    key    ="remote-state"
     region = "eu-west-1"
   }
 }
