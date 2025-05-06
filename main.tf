@@ -51,7 +51,7 @@ module "eks" {
 module "mongodb" {
   source                         = "./modules/mongodb-express"
 }
-
+/*
 #######################################################
 # local kubeconfig setup
 #######################################################
@@ -60,4 +60,4 @@ resource "null_resource" "this" {
   provisioner "local-exec" {
     command = "aws eks update-kubeconfig --region ${var.region} --name ${random_pet.this.id}"
   }
-}
+}*/

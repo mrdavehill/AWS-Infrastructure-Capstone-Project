@@ -35,10 +35,9 @@ provider "kubectl" {
   host                   = try(module.eks.cluster_endpoint, "foo")
   cluster_ca_certificate = try(base64decode(module.eks.cluster_certificate_authority_data), "bar")
   load_config_file       = false
-
   exec {
-    api_version = "client.authentication.k8s.io/v1beta1"
-    command     = "aws-iam-authenticator"
+    api_version          = "client.authentication.k8s.io/v1beta1"
+    command              = "aws-iam-authenticator"
     args = [
       "token",
       "-i",
