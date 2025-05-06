@@ -17,9 +17,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = data.aws_caller_identity.this.account_id
-    key    = random_pet.this.id
-    region = var.region 
+    bucket = 232413781559-eu-west-1
+    key    ="/'
+    region = eu-west-1 
   }
 }
 
