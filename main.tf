@@ -49,6 +49,7 @@ module "eks" {
 # mongodb express
 #######################################################
 module "mongodb" {
+  depends_on                     = [module.eks]
   source                         = "./modules/mongodb-express"
 }
 
@@ -56,8 +57,9 @@ module "mongodb" {
 # local kubeconfig setup
 #######################################################
 resource "null_resource" "this" {
-  count = var.kubeconfig ? 1 : 0
+  depends_on = [module.eks]
+  count      = var.kubeconfig ? 1 : 0
   provisioner "local-exec" {
-    command = "aws eks update-kubeconfig --region ${var.region} --name ${random_pet.this.id}"
+    command  = "aws eks update-kubeconfig --region ${var.region} --name ${random_pet.this.id}"
   }
 }
