@@ -13,6 +13,10 @@ And you'll be greeted by this:
 
 ## A bit about Mongodb and Mongo Express
 
+Why Mongo Express? It's a containerised, multi-tiered app that uses configmaps, secrets, services, deployments and an ingress - all the good stuff and simple enough to troubleshoot with a small amount of knowledge.
+
+Here's the sales pitch:
+
 MongoDB is an open-source, NoSQL document database. It's designed to be flexible and scalable, allowing developers to store and retrieve data in a document-oriented format using JSON-like structures. Unlike traditional relational databases, MongoDB doesn't require predefined schemas, making it easier to work with unstructured or semi-structured data. 
 
 Mongo Express is a web-based administrative tool for managing MongoDB databases. It provides a user-friendly interface for interacting with MongoDB, allowing users to view, add, delete, and modify databases, collections, and documents. Built using Node.js, Express.js, and Bootstrap, it simplifies common MongoDB administration tasks.
