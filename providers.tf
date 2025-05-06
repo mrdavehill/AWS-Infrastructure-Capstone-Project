@@ -17,7 +17,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "232413781559-eu-west-1"
+    bucket = "232413781559-eu-west-1" # Account ID and region - auto-generated in 
     key    ="remote-state"
     region = "eu-west-1"
   }
@@ -31,22 +31,6 @@ provider "aws" {
 }
 
 provider "kubectl" {
-  apply_retry_count      = 15
-  host                   = try(module.eks.cluster_endpoint, "foo")
-  cluster_ca_certificate = try(base64decode(module.eks.cluster_certificate_authority_data), "bar")
-  load_config_file       = false
-  exec {
-    api_version          = "client.authentication.k8s.io/v1beta1"
-    command              = "aws-iam-authenticator"
-    args = [
-      "token",
-      "-i",
-      try(module.eks.cluster_id, "baz"),
-    ]
-  }
-}
-/*
-provider "kubectl" {
   host                   = try(module.eks.cluster_endpoint, "foo")
   cluster_ca_certificate = try(base64decode(module.eks.cluster_certificate_authority_data), "bar")
   exec {
@@ -54,4 +38,4 @@ provider "kubectl" {
     args                 = ["eks", "get-token", "--cluster-name", random_pet.this.id]
     command              = "aws"
   }
-}*/
+}
