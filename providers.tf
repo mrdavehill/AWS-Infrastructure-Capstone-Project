@@ -17,9 +17,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = 232413781559-eu-west-1
+    bucket = "232413781559-eu-west-1"
     key    ="/"
-    region = eu-west-1 
+    region = "eu-west-1"
   }
 }
 
