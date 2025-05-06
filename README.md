@@ -34,6 +34,7 @@ There's an issue with Apple silicon and the kubectl provider. I have run this su
 
 | Name | Version |
 |------|---------|
+| <a name="requirement_awscli"></a> [aws](#requirement\_awscli) | >= 2.27.8 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
 | <a name="requirement_kubectl"></a> [kubectl](#requirement\_kubectl) | >= 1.7.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | 3.7.2 |
