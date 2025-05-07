@@ -2,6 +2,8 @@
 
 This is a custom Terraform to spin up an auto-mode EKS cluster in a new dedicated VPC, load Mongodb, Mongo Express and create an Ingress so it's externally accessable.
 
+You'll need a jumpbox with the correctly patched software to run terreaform apply and an s3 bucket for remote state - use this repo to build them both: [GitHub Repo](https://github.com/mrdavehill/AWS-Infrastructure-Capstone-Jumpbox)
+
 Once spun up, access the Mongo Express UI from the ALB DNS A Name using the creds below:
 
 Username: username  
